@@ -44,7 +44,7 @@ resource "aws_instance" "web" {
   user_data = <<-USERDATA
     #!/bin/bash
     dnf install -y nginx
-    echo "<h1>CloudCamp - deployed by HCP Terraform from $(hostname)</h1>" > /usr/share/nginx/html/index.html
+    echo "<h1>CloudCamp - $(hostname)</h1>" > /usr/share/nginx/html/index.html
     systemctl enable --now nginx
   USERDATA
 
